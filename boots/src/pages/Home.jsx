@@ -27,6 +27,7 @@ function Home({ items,
             />)} */}
                 {items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())).map((item, index) => (
                     <Cart
+                        id={item.id}
                         key={index}
                         name={item.name}
                         imageUrl={item.imageUrl}

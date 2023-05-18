@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './Cart.module.scss'
 
 
-function Cart({ imageUrl, name, price, onFavorite, onPlus }) {
+function Cart({ id, imageUrl, name, price, onFavorite, onPlus, favorited = false }) {
 
     const [isAdded, setIsAdded] = React.useState(false);
 
-    const [isFavorite, setIsFavorite] = React.useState(false);
+    const [isFavorite, setIsFavorite] = React.useState(favorited);
 
     const onClickFavorite = () => {
-        onFavorite({ name, imageUrl, price });
+        onFavorite({ id, name, imageUrl, price });
         setIsFavorite(!isFavorite);
     }
 
