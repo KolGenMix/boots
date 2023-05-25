@@ -1,6 +1,7 @@
 import Cart from "../components/Cart/Cart"
 
 function Home({ items,
+    cartItems,
     searchValue,
     onAddToCart,
     onAddToFavorite,
@@ -34,6 +35,7 @@ function Home({ items,
                         price={item.price}
                         onFavorite={(obj) => onAddToFavorite(obj)}
                         onPlus={(obj) => onAddToCart(obj)}
+                        added={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
                     />))}
 
             </div>

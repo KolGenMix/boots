@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './Cart.module.scss'
 
 
-function Cart({ id, imageUrl, name, price, onFavorite, onPlus, favorited = false }) {
+function Cart({ id, imageUrl, name, price, onFavorite, onPlus, favorited = false, added = false }) {
 
-    const [isAdded, setIsAdded] = React.useState(false);
+    const [isAdded, setIsAdded] = React.useState(added);
 
     const [isFavorite, setIsFavorite] = React.useState(favorited);
 
@@ -14,7 +14,7 @@ function Cart({ id, imageUrl, name, price, onFavorite, onPlus, favorited = false
     }
 
     const onClickPlus = () => {
-        onPlus({ imageUrl, name, price });
+        onPlus({ id, imageUrl, name, price });
         setIsAdded(!isAdded);
     }
     return (
