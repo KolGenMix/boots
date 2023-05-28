@@ -29,34 +29,34 @@ function App() {
 
   const [favorites, setFavorites] = React.useState([]);
 
-  // React.useEffect(() => {
-  //   // fetch("https://644dee8c1b4567f4d57cb282.mockapi.io/items").then(res => { return (res.json()) }).then((json) => { setItems(json); })
-
-  //   axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/items").then((res) => { setItems(res.data) })
-
-  //   axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/cart").then((res) => { setCartItems(res.data) })
-
-  //   axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/favorites").then((res) => { setFavorites(res.data) })
-  // }, []);
-
-
   React.useEffect(() => {
-    async function fetchData() {
+    // fetch("https://644dee8c1b4567f4d57cb282.mockapi.io/items").then(res => { return (res.json()) }).then((json) => { setItems(json); })
 
-      const itemsResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/items");
+    axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/items").then((res) => { setItems(res.data) })
 
-      const cartResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/cart");
+    axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/cart").then((res) => { setCartItems(res.data) })
 
-      const favoritesResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/favorites");
-
-
-      setCartItems(cartResponse.data);
-      setFavorites(favoritesResponse.data);
-      setItems(itemsResponse.data);
-    }
-
-    fetchData();
+    axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/favorites").then((res) => { setFavorites(res.data) })
   }, []);
+
+
+  // React.useEffect(() => {
+  //   async function fetchData() {
+
+  //     const itemsResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/items");
+
+  //     const cartResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/cart");
+
+  //     const favoritesResponse = await axios.get("https://644dee8c1b4567f4d57cb282.mockapi.io/favorites");
+
+
+  //     setCartItems(cartResponse.data);
+  //     setFavorites(favoritesResponse.data);
+  //     setItems(itemsResponse.data);
+  //   }
+
+  //   fetchData();
+  // }, []);
 
   const onAddToCart = (obj) => {
     console.log(obj);
